@@ -1,0 +1,234 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --primary-color: #fe6032;
+    --border-color: #ccc;
+    --star-gold-color: #ffce3d;
+    --header-height: 120px;
+    --header-navbar-height: 41px;
+    --header-search-height: calc(var(--header-height) - var(--header-navbar-height));
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.grid__column-2 {
+    width: 16.6667%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.grid__column-2-5 {
+    width: 20%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.grid__column-10 {
+    width: 83.3334%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* Modal Layout */
+.modal {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: fadeIn linear 0.1s;
+    z-index: 999;
+}
+
+.modal__overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+}
+
+.modal__body {
+    --growth-from: 0.7;
+    --growth-to: 1;
+    margin: auto;
+    z-index: 1;
+    animation: growth linear 0.1s;
+}
+
+/* Button style */
+.btn {
+    min-width: 124px;
+    height: 36px;
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--white-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    line-height: 1.6rem ;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.btn.btn--primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn.btn--size-s {
+    height: 30px;
+    font-size: 1.4rem;
+}
+
+/* Selection */
+.select-input {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 36px;
+    width: 200px;
+    background-color: var(--white-color);
+    font-size: 1.4rem;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.select-input:hover .selection-input__list {
+    display: block;
+}
+
+.select-input__label {
+    margin-left: 14px;
+}
+
+.select-input__icon {
+    margin-right: 12px;
+}
+
+.selection-input__list {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    border-radius: 2px;
+    width: 200px;
+    list-style-type: none;
+    background-color: var(--white-color);
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.selection-input__list::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    height: 5px;
+    width: 100%;
+}
+
+.selection-input__item:hover .election-input__item-link {
+    color: var(--primary-color);
+}
+
+.election-input__item-link {
+    margin: 16px 14px;
+    display: block;
+    text-decoration: none;  
+    color: var(--text-color);
+}
+
+/* Pagination */
+.pagination {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-item {
+    --height: 30px;
+    min-width: 40px;
+    height: var(--height);
+    text-align: center;
+    background-color: transparent;
+    line-height: var(--height);
+    margin: 0 15px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.pagination-item:hover .pagination-item__link {
+    filter: brightness(94%);
+}
+
+.pagination-item__link.pagination-item-link--actived {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item__link {
+    display: block;
+    text-decoration: none;
+    font-size: 2rem;
+    color: #939393;
+}
+
+.pagination-item__icon  {
+    font-size: 1.5rem;
+}
