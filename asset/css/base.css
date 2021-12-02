@@ -71,6 +71,7 @@ html {
     from {
         transform: scale(var(--growth-from));
     }
+
     to {
         transform: scale(var(--growth-to));
     }
@@ -79,13 +80,18 @@ html {
 /* Modal Layout */
 .modal {
     position: fixed;
-    display: flex;
+    /* display: flex; */
+    display: none;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     animation: fadeIn linear 0.1s;
     z-index: 999;
+}
+
+.modal--open {
+    display: flex;
 }
 
 .modal__overlay {
