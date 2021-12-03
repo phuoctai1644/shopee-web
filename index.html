@@ -63,8 +63,8 @@
                                 </div>
 
                                 <div class="navbar__notify-btn">
-                                    <a href="" class="navbar__notify-register">Đăng ký</a>
-                                    <a href="" class="navbar__notify-signin">Đăng nhập</a>
+                                    <a href="" class="navbar__notify-register" onclick="openRegisterModal()">Đăng ký</a>
+                                    <a href="" class="navbar__notify-signin" onclick="openSignInModal()">Đăng nhập</a>
                                 </div>
                             </div>
                         </li>
@@ -75,8 +75,8 @@
                                 Hỗ trợ
                             </a>
                         </li>
-                        <li class="navbar__items navbar__items--separate js-navbar__register">Đăng Ký</li>
-                        <li class="navbar__items js-navbar__sign-in">Đăng Nhập</li>
+                        <li class="navbar__items navbar__items--separate js-navbar__register" onclick="openRegisterModal()">Đăng Ký</li>
+                        <li class="navbar__items js-navbar__sign-in" onclick="openSignInModal()">Đăng Nhập</li>
                         
                         <!-- <li class="navbar__items navbar__items-users">
                             <img src="./asset/img/header/navbar/userAvatar.jpg" alt="" class="navbar__items-users-img">
@@ -98,7 +98,7 @@
                 <!-- End Navigation Bar -->
 
                 <div class="header-with-search">
-                    <div class=" hide-on-tablet">
+                    <div class="header__logo hide-on-mobile-tablet">
                         <a href="/">
                             <svg viewBox="0 0 192 65" class="header__logo-img">
                                 <g fill-rule="evenodd">
@@ -218,7 +218,7 @@
                                     </li>
 
                                     <!-- Test -->
-                                    <li class="header__cart-items">
+                                    <!-- <li class="header__cart-items">
                                         <img src="https://cf.shopee.vn/file/7b5bc48ef93d2146e65aecc00e6407e1_tn" alt="Macbook M1" class="header__cart-items-img">
                                         <div class="header__cart-items-wrap">
                                             <div class="header__cart-items-head">
@@ -368,7 +368,7 @@
                                                 <span class="header__cart-items-remove">Xóa</span>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> -->
                                 </ul>
 
                                 <div class="header__cart-lists-footer">
@@ -381,6 +381,20 @@
                     </div>
                 </div>
             </div>
+            <ul class="header__sort-bar">
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Liên quan</a>
+                </li>
+                <li class="header__sort-item header__sort-item--active">
+                    <a href="" class="header__sort-link">Mới nhất</a>
+                </li>
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Bán chạy</a>
+                </li>
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Giá</a>
+                </li>
+            </ul>
         </header>
 
         <div class="app__container">
@@ -456,7 +470,7 @@
                             <div class="grid__row">
                                 <div class="grid__column-2-5">
                                     <a href="" class="product-item">
-                                        <div class="product-item__img" style="background-image: url(https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MV7N2?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1551489688005"></div>
+                                        <div class="product-item__img" style="background-image: url(https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MV7N2?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1551489688005)"></div>
                                         <div class="product-item-wrap">
                                             <div class="product-item__name">Apple AirPods with Charging Case 2nd gen</div>
                                             <div class="product-item__sale">
@@ -512,7 +526,7 @@
 
                                 <div class="grid__column-2-5">
                                     <a href="" class="product-item">
-                                        <div class="product-item__img" style="background-image: url('https://lh3.googleusercontent.com/vhAx9hAkH-nR37CEVBRqykUBLqpudFOcX2YrBjr18SGR_0N5YxW8Kh5oORhT9rwqehJs1HlUYUoqoP7q0RY=w500-rw')"></div>
+                                        <div class="product-item__img" style="background-image: url(https://lh3.googleusercontent.com/vhAx9hAkH-nR37CEVBRqykUBLqpudFOcX2YrBjr18SGR_0N5YxW8Kh5oORhT9rwqehJs1HlUYUoqoP7q0RY=w500-rw)"></div>
                                         <div class="product-item-wrap">
                                             <div class="product-item__name">Apple 20W USB-C Power Adapter</div>
                                             <div class="product-item__sale product-item__sale--disable">
@@ -1168,12 +1182,12 @@
 
     <!-- Modal layout -->
     <!-- Add modal--open => display modal -->
-    <div class="modal modal--open">
-        <div class="modal__overlay"></div>
+    <div class="modal">
+        <div class="modal__overlay" onclick="backToHomeFromModal()"></div>
 
         <div class="modal__body">
             <!-- Register form -->
-            <!-- <div class="auth-form js-register-auth-form">
+            <div class="auth-form js-register-auth-form">
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__register">Đăng ký</h3>
@@ -1203,7 +1217,7 @@
                     </div>
     
                     <div class="auth-form__control">
-                        <button class="btn auth-form__control-back">TRỞ LẠI</button>
+                        <button class="btn auth-form__control-back" onclick="backToHomeFromModal()">TRỞ LẠI</button>
                         <button type="submit" class="btn btn--primary">ĐĂNG KÍ</button>
                     </div>
                 </div>
@@ -1219,10 +1233,10 @@
                         <span class="auth-form__socials-title">Kết nối với Google</span> 
                     </a>
                 </div>
-            </div>  -->
+            </div> 
 
             <!-- Login form -->
-            <div class="auth-form js-sign-in-auth-form actived">
+            <div class="auth-form js-sign-in-auth-form">
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__register">Đăng nhập</h3>
@@ -1248,7 +1262,7 @@
                     </div>
     
                     <div class="auth-form__control">
-                        <button class="btn auth-form__control-back">TRỞ LẠI</button>
+                        <button class="btn auth-form__control-back" onclick="backToHomeFromModal()">TRỞ LẠI</button>
                         <button type="submit" class="btn btn--primary">ĐĂNG NHẬP</button>
                     </div>
                 </div>
