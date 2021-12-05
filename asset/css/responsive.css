@@ -44,6 +44,9 @@
 
 /* Mobile */ 
 @media (max-width: 739px) {
+    .mobile-content {
+        margin: 0;
+    }
     .hide-on-mobile {
         display: none;
     }
