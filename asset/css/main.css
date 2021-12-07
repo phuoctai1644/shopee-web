@@ -447,6 +447,10 @@ header {
     cursor: pointer;
 }
 
+.header__logo {
+    width: 220px;
+}
+
 .header__logo-link {
     display: block;
 }
@@ -622,6 +626,7 @@ header {
     display: inline-block;
     position: relative;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header__cart-icon {
@@ -889,10 +894,12 @@ header {
     color: var(--text-color);
     display: block;
     position: relative;
+    height: 100%;
 }
 
 .header__sort-item--active .header__sort-link {
     color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .header__sort-link::before {
@@ -1042,6 +1049,60 @@ header {
 .sort-bar__control-icon {
     margin: auto;
     color: var(--text-color);
+}
+
+/* Mobile Category */
+.mobile-category {
+    display: none;
+}
+.mobile-category__list {
+    display: flex;
+    list-style-type: none;
+    max-width: 100%;
+    overflow-x: auto;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.mobile-category__list::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-category__item {
+    flex-shrink: 0;
+    width: 110px;
+    min-height: 40px;
+    margin-right: 8px;
+    border-radius: 4px;
+    display: flex;
+}
+
+.mobile-category__item:nth-of-type(3n) {
+    background-color: #7ea6d4;
+}
+
+.mobile-category__item:nth-of-type(3n + 1) {
+    background-color: #6bc2b6;
+}
+
+.mobile-category__item:nth-of-type(3n + 2) {
+    background-color: #7bc975;
+}
+
+.mobile-category__link {
+    margin: auto;
+    display: block;
+    text-decoration: none;
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--white-color);
+    font-weight: 300;
+    user-select: none;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    -webkit-user-select: none;
 }
 
 /* Procduct section */
@@ -1286,7 +1347,7 @@ header {
 }
 
 .pagination-containter--margin {
-    margin: 16px 0 60px;
+    margin: 16px 0 40px;
 }
 
 /* Footer */
@@ -1326,6 +1387,7 @@ header {
 .footer__withdraw-list {
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .footer__withdraw-item {
